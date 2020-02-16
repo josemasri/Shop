@@ -1,0 +1,7 @@
+<ion-slides pager="false" slidesPerView="1" [options]="slideOptsOne" loop>
+  <ion-slide *ngFor="let slide of slides">
+    <ion-card>
+      <img [src]="slide.img | image:'banner'">
+    </ion-card>
+  </ion-slide>
+</ion-slides>

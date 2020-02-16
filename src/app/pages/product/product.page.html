@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{product.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{product.title}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <img [src]="product.img | image:'product'" alt="">
+      {{product.description}}
+      <ion-item>
+        <ion-label>Cantidad</ion-label>
+        <ion-select>
+          <ion-select-option *ngFor="let item of [1,2,3,4,5]" value="item" selected>{{item}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ng-container *ngIf="product.options">
+        <ion-item *ngFor="let option of product.options">
+          <ion-label>{{option.option}}</ion-label>
+          <ion-select>
+            <ion-select-option *ngFor="let opt of option.options"  value="opt" selected>{{opt}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ng-container>
+
+      <ion-button expand="full" fill="solid">
+        <ion-icon slot="start" name="card"></ion-icon> Comprar
+      </ion-button>
+      <ion-button (click)="addToCart()" expand="full" fill="solid" color="secondary">
+        <ion-icon slot="start" name="cart"></ion-icon> Agregar
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
