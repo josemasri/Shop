@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MapboxServiceService, Feature } from '../../services/mapbox-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment',
@@ -20,7 +21,8 @@ export class PaymentPage implements OnInit {
   selectedAddress = null;
 
   constructor(
-    private mapboxService: MapboxServiceService
+    private mapboxService: MapboxServiceService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -42,5 +44,9 @@ export class PaymentPage implements OnInit {
   onSelect(address: string) {
     this.selectedAddress = address;
     this.addresses = [];
+  }
+
+  onSubmit() {
+    this.router.navigate(['/']);
   }
 }

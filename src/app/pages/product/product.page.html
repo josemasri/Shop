@@ -31,7 +31,7 @@
         </ion-item>
       </ng-container>
 
-      <ion-button expand="full" fill="solid">
+      <ion-button [routerLink]="['/payment']" expand="full" fill="solid">
         <ion-icon slot="start" name="card"></ion-icon> Comprar
       </ion-button>
       <ion-button (click)="addToCart()" expand="full" fill="solid" color="secondary">

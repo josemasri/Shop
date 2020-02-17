@@ -56,12 +56,30 @@
           </div>
         </ion-col>
       </ion-row>
-      <ion-row *ngIf="addresses.length > 0">
-
-        <ion-col size="12" *ngFor="let address of addresses">
-          Dirección 1
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Número de tarjeta</ion-label>
+            <ion-input type="number"></ion-input>
+          </ion-item>
         </ion-col>
       </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">CCV</ion-label>
+            <ion-input type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Fecha exp</ion-label>
+            <ion-datetime display-format="MMM DD, YYYY"></ion-datetime>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+
       <ion-row>
         <ion-col size="12">
           <ion-button type="submit" expand="full" fill="solid" color="success">Pagar</ion-button>
