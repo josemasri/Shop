@@ -23,7 +23,10 @@ export class ProductByCategoryPage implements OnInit {
   ngOnInit() {
     this.sub = this.activatedRoute.params.subscribe(params => {
       this.category = params['category'];
-      this.products = this.productService.getProductsByCategory(this.category);
+      this.productService.getProductsByCategory(this.category)
+      .subscribe((res: any) => {
+        this.products = res.products;
+      });
     });
   }
 

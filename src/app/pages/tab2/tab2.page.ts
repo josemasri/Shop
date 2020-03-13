@@ -12,7 +12,7 @@ export class Tab2Page implements OnInit {
 
   @Output() darkEvent: EventEmitter<boolean> = new EventEmitter();
 
-  categories: string[];
+  categories: any[];
 
   dark = false;
 
@@ -23,7 +23,9 @@ export class Tab2Page implements OnInit {
 
   }
   ngOnInit() {
-    this.categories = this.productService.getCategories();
+    this.productService.getCategories().subscribe((res: any) => {
+      this.categories = res.categories;
+    });
   }
 
   darkMode() {

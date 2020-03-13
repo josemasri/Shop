@@ -23,24 +23,24 @@ export class FeaturedProductsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.products = this.productService.getProducts(this.page);
+    this.productService.getProducts(this.page).subscribe((res: any) => {
+      console.log(res.products);
+      this.products = res.products;
+    });
   }
 
   loadData(e) {
     setTimeout(() => {
       this.page++;
-      const newProducts = this.productService.getProducts(this.page);
-      if (newProducts.length > 0) {
-        this.products.push(...newProducts);
-        e.target.complete();
-      } else {
-        this.infiniteScroll.disabled = true;
-      }
+      this.productService.getProducts(this.page);
+      this.infiniteScroll.disabled = true;
     }, 3000);
   }
 
   getProducts() {
-    this.products = this.productService.getProducts(this.page);
+    this.productService.getProducts(this.page).subscribe((res: any) => {
+      this.products = res.products;
+    });
   }
 
 }

@@ -14,7 +14,7 @@ import { NavController } from '@ionic/angular';
 export class ProductPage implements OnInit, OnDestroy {
 
   private sub;
-  public id: number;
+  public id: string;
   public product: Product;
 
   constructor(
@@ -26,8 +26,12 @@ export class ProductPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.sub = this.activatedRoute.params.subscribe(params => {
-      this.id = +params['id'];
-      this.product = this.productService.getProductByID(this.id);
+      this.id = params['id'];
+      this.productService.getProductByID(this.id)
+      .subscribe((res: any) => {
+        this.product = res.product;
+        console.log(res);
+      });
     });
   }
 

@@ -1,7 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Product } from '../interfaces/Product';
 import { Storage } from '@ionic/storage';
-import { EventEmitter } from 'protractor';
 import { Subject } from 'rxjs';
 
 
@@ -30,7 +29,7 @@ export class CartService implements OnInit {
   }
 
   removeProduct(id: number) {
-    this.products = this.products.filter(product => product.id !== id);
+    this.products = this.products.filter(product => product._id !== id);
     this.number = this.products.length;
     this.update.next(this.number);
     this.setStorage();

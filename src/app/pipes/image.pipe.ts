@@ -12,7 +12,7 @@ export class ImagePipe implements PipeTransform {
         url = `${url}banners/${image}`;
         break;
       case 'product':
-        url = `${url}products/${image}`;
+        url = `http://localhost:3000/product/img/${image}`;
         break;
       default:
         url = `${url}banners/${image}`;

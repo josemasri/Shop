@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-grid fixed>
-    <ion-row *ngFor="let product of products" align-items-center [routerLink]="['/product', product.id]">
+    <ion-row *ngFor="let product of products" align-items-center [routerLink]="['/product', product._id]">
       <ion-col size="6">
         <img [src]="product.img | image:'product'" alt="">
       </ion-col>

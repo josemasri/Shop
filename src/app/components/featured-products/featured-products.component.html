@@ -4,7 +4,7 @@
   </ion-text>
   <ion-row>
     <ion-col size="6" *ngFor="let product of products" >
-    <app-featured-product [routerLink]="['/product', product.id]" [image]="product.img" [title]="product.title" [price]="product.price"></app-featured-product>
+    <app-featured-product [routerLink]="['/product', product._id]" [image]="product.img" [title]="product.title" [price]="product.price"></app-featured-product>
     </ion-col>
     <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
       <ion-infinite-scroll-content
